@@ -1,0 +1,35 @@
+# GitHub Issue Export
+
+| Number | State | Title | Author | Created | Updated | Closed | Comments | Labels | Assignees |
+| --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- |
+| #133 | open | Document stack calculation changes since Rizin 0.5 | wargio | 2025-01-06T11:12:22Z | 2025-01-06T11:12:22Z | pending | 0 |  |  |
+| #127 | open | Remove rzlang chapter and replace it with rz-bindgen | wargio | 2024-08-07T02:17:34Z | 2024-08-07T02:17:34Z | pending | 0 |  |  |
+| #121 | open | document rizin compilation for microsoft 2022 | gogo2464 | 2024-03-27T00:23:55Z | 2024-03-29T10:27:17Z | pending | 3 |  |  |
+| #117 | closed | Error while parsing command: `pdf@main` | zhongl | 2024-02-13T08:30:36Z | 2024-02-13T14:13:45Z | 2024-02-13T14:13:45Z | 1 |  |  |
+| #110 | open | Old names tools on Wiki pages | GermanAizek | 2024-01-18T13:32:07Z | 2024-01-24T07:53:56Z | pending | 1 |  | wargio |
+| #107 | closed | Update the Expressions Section | chucklesb | 2023-11-21T18:00:09Z | 2023-11-22T06:17:23Z | 2023-11-22T06:17:23Z | 0 |  |  |
+| #102 | open | Fix `db` command syntax | XVilka | 2023-09-04T04:08:49Z | 2025-11-16T17:15:21Z | pending | 1 | bug, good first issue |  |
+| #101 | open | `stable` and `dev` channels | XVilka | 2023-08-30T00:54:58Z | 2023-08-30T16:10:19Z | pending | 4 |  |  |
+| #99 | closed | Outdated math commands in section 2.3. Expressions | 8dcc | 2023-08-29T13:27:42Z | 2023-08-30T02:25:33Z | 2023-08-30T02:25:33Z | 2 |  |  |
+| #97 | closed | remove Makefile from plugin dev | gogo2464 | 2023-06-12T10:22:29Z | 2023-06-23T02:42:30Z | 2023-06-23T02:42:30Z | 3 |  | ret2libc, gogo2464 |
+| #96 | open | correct td command quotation mark position | superewald | 2023-01-05T07:17:50Z | 2023-01-05T07:53:05Z | pending | 1 |  |  |
+| #95 | closed | in ioli_0x05.html it Must be an even number (1 & number == 0) instead of odd | sku0x20 | 2022-11-12T08:20:31Z | 2024-04-26T11:52:43Z | 2024-04-26T11:52:43Z | 0 |  |  |
+| #91 | open | Document byte array code generators | wargio | 2022-03-24T16:39:23Z | 2022-03-25T12:29:33Z | pending | 0 |  |  |
+| #81 | closed | Document FLIRT signature generation | XVilka | 2021-12-16T03:43:04Z | 2024-08-07T02:16:37Z | 2024-08-07T02:16:37Z | 0 | chapter | wargio |
+| #80 | open | Update book to reflect `ar` and `dr` changes | XVilka | 2021-12-07T02:40:44Z | 2025-11-16T17:18:42Z | pending | 1 | good first issue | thestr4ng3r |
+| #77 | open | Document basefind | XVilka | 2021-11-17T04:12:32Z | 2021-12-16T03:43:13Z | pending | 0 | chapter | wargio |
+| #75 | open | PDF render with Quarto - unsupported Unicode character | XVilka | 2021-11-16T08:42:47Z | 2023-09-04T04:10:44Z | pending | 0 |  |  |
+| #68 | open | Document the switch between various `Vpp` modes | XVilka | 2021-09-18T08:15:48Z | 2021-09-18T08:15:48Z | pending | 0 |  |  |
+| #67 | open | Add a chapter about global variables - `avg` commands | XVilka | 2021-08-11T16:25:54Z | 2026-01-24T10:19:49Z | pending | 3 | chapter |  |
+| #66 | open | [master] describe usage of bin.libs | wargio | 2021-07-13T10:14:56Z | 2021-07-13T10:25:57Z | pending | 0 |  |  |
+| #62 | open | [master] Explain the usage of io.cache | wargio | 2021-06-06T11:34:01Z | 2021-06-06T11:34:01Z | pending | 0 |  |  |
+| #60 | closed | Consider switching from mdBook to Bookdown | XVilka | 2021-06-01T11:29:06Z | 2021-10-08T04:25:12Z | 2021-10-08T04:25:12Z | 2 | help wanted |  |
+| #59 | open | Describe how to open files through IO plugins | XVilka | 2021-05-28T11:12:23Z | 2021-05-28T11:12:23Z | pending | 0 | chapter |  |
+| #50 | closed | Add new rz-diff into the book | wargio | 2021-05-23T11:16:54Z | 2021-08-11T18:21:43Z | 2021-08-11T18:21:43Z | 1 | section |  |
+| #48 | closed | Edit history.md | ghost | 2021-05-14T19:48:34Z | 2021-05-14T23:34:40Z | 2021-05-14T23:34:40Z | 1 |  |  |
+| #46 | open | Add a job for Codespell in the CI to check spelling | officialcjunior | 2021-05-10T10:51:39Z | 2025-11-16T17:21:57Z | pending | 1 | good first issue |  |
+| #42 | open | Understand why there are some comments unrelated to plugins in rzbin section | wargio | 2021-04-07T20:30:59Z | 2021-04-07T20:31:23Z | pending | 0 | question |  |
+| #41 | open | Document the Table API | XVilka | 2021-04-07T11:38:34Z | 2026-01-16T17:43:05Z | pending | 5 | good first issue |  |
+| #22 | closed | Update seek commands  | XVilka | 2021-01-19T11:02:01Z | 2021-01-20T02:35:23Z | 2021-01-20T02:35:23Z | 0 |  | ret2libc |
+| #4 | closed | Document `rz-gg` and rizin's `g` commands | XVilka | 2020-12-10T08:18:04Z | 2020-12-17T09:42:13Z | 2020-12-17T09:42:13Z | 0 |  |  |
+| #1 | open | Remove mention of the removed commands | XVilka | 2020-10-29T04:15:00Z | 2021-02-13T18:02:30Z | pending | 5 |  |  |

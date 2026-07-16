@@ -1,0 +1,18 @@
+{
+  "author_filter": "",
+  "bookmarks": [],
+  "label_filter": "",
+  "milestone_filter": "",
+  "recent_repositories": [
+    "https://github.com/nginx/nginx.git",
+    "https://github.com/rizinorg/book.git"
+  ],
+  "repo_url": "https://github.com/rizinorg/book.git",
+  "saved_views": [],
+  "search_query": "",
+  "show_only_assigned": false,
+  "show_prs": false,
+  "show_unlabeled_only": false,
+  "sort_mode": 2,
+  "state_filter": 0
+}
