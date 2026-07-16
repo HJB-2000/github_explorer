@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cstdlib>
 #include <cstdio>
 #include <atomic>
 #include <fstream>
@@ -51,6 +52,7 @@ struct GitHubAuthTask {
     std::atomic<bool> running{false};
     std::atomic<bool> finished{false};
     std::mutex mutex;
+    bool browser_opened = false;
     GitHubDeviceCode device_code;
     GitHubTokenResponse token_response;
     GitHubUserProfile profile;
@@ -59,6 +61,19 @@ struct GitHubAuthTask {
 };
 
 static GitHubAuthTask g_github_auth_task;
+
+static bool open_url_in_browser(const std::string& url) {
+#if defined(_WIN32)
+    const std::string command = "start \"\" \"" + url + "\"";
+    return std::system(command.c_str()) == 0;
+#elif defined(__APPLE__)
+    const std::string command = "open \"" + url + "\" >/dev/null 2>&1 &";
+    return std::system(command.c_str()) == 0;
+#else
+    const std::string command = "xdg-open \"" + url + "\" >/dev/null 2>&1 &";
+    return std::system(command.c_str()) == 0;
+#endif
+}
 
 struct AppState {
     char repo_url[512];
@@ -339,6 +354,7 @@ static void begin_github_auth(AppState& state) {
     state.github_verification_uri_complete.clear();
     g_github_auth_task.running.store(true);
     g_github_auth_task.finished.store(false);
+    g_github_auth_task.browser_opened = false;
 
     g_github_auth_task.worker = std::thread([client_id]() {
         GitHubDeviceCode device_code;
@@ -355,7 +371,22 @@ static void begin_github_auth(AppState& state) {
         {
             std::lock_guard<std::mutex> lock(g_github_auth_task.mutex);
             g_github_auth_task.device_code = device_code;
-            g_github_auth_task.status_message = "Enter the code in GitHub and approve the app.";
+            g_github_auth_task.status_message = "Opening GitHub in your browser. Approve the device code there.";
+        }
+
+        const std::string browser_url = !device_code.verification_uri_complete.empty() ? device_code.verification_uri_complete : device_code.verification_uri;
+        if (!browser_url.empty()) {
+            open_url_in_browser(browser_url);
+        }
+
+        {
+            std::lock_guard<std::mutex> lock(g_github_auth_task.mutex);
+            g_github_auth_task.browser_opened = true;
+            if (!device_code.user_code.empty()) {
+                g_github_auth_task.status_message = "GitHub opened. Confirm access and enter code " + device_code.user_code + ".";
+            } else {
+                g_github_auth_task.status_message = "GitHub opened. Confirm access in the browser.";
+            }
         }
 
         GitHubTokenResponse token_response;
@@ -890,7 +921,7 @@ static void render_auth_screen(AppState& state) {
             }
             if (!g_github_auth_task.device_code.user_code.empty()) {
                 ImGui::TextColored(ImVec4(0.95f, 0.97f, 1.0f, 1.0f), "Code: %s", g_github_auth_task.device_code.user_code.c_str());
-                ImGui::TextWrapped("Open %s and enter the code.", g_github_auth_task.device_code.verification_uri.c_str());
+                ImGui::TextWrapped("Open %s if your browser does not launch automatically.", g_github_auth_task.device_code.verification_uri.c_str());
             }
         }
         ImGui::TextDisabled("%s", auth_progress.c_str());
@@ -996,6 +1027,8 @@ static void draw_dashboard(AppState& state) {
         ImGui::RadioButton("Most comments", &state.sort_mode, 2);
         ImGui::EndChild();
     }
+
+    ImGui::EndChild();
 
     draw_status_banner(state);
 

@@ -49,7 +49,7 @@ vpath %.cpp $(SRC_DIR) $(IMGUI_DIR) $(IMGUI_DIR)/backends
 
 # --- Build Rules ---
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re run
 
 all: $(TARGET)
 
@@ -81,5 +81,10 @@ fclean: clean
 
 # Rebuild project
 re: fclean all
+
+# Rebuild and launch a fresh instance of the app
+run: re
+	@echo "Launching fresh instance: ./$(TARGET)..."
+	@./$(TARGET)
 
 -include $(DEPS)
